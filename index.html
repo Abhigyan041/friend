@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Favorite Person ✨</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Animated Background Layer -->
+  <div id="hearts-container"></div>
+
+  <!-- Audio Player -->
+  <audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar">
+    <div class="logo">🌸 Special Corner</div>
+    <div class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#memories">Memories</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#flowers">Bouquet</a>
+      <a href="#secret">Letters</a>
+    </div>
+    <button class="music-toggle" id="musicBtn" title="Play Music">🎵</button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-card">
+      <div class="avatar-wrapper">
+       <img src="image1.jpeg" alt="Friend Photo" id="profilePic">
+      </div>
+      <h1>Hey, Wonderful! ✨</h1>
+      <p class="tagline">A small corner of the internet dedicated to celebrating you.</p>
+      
+      <div class="daily-note-box">
+        <p id="quoteText">"You bring light into every room you walk into."</p>
+        <button id="newQuoteBtn">Get Another Sweet Note 💌</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Memory Timeline -->
+  <section id="memories" class="section">
+    <h2>Our Memory Timeline 📖</h2>
+    <div class="timeline">
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>The First Day We Met 🌟</h3>
+          <p>Who knew that a simple hello would turn into one of the best friendships ever?</p>
+        </div>
+      </div>
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>Late Night Talks 🌙</h3>
+          <p>Hours spent talking about everything and nothing. Always the highlight of the week!</p>
+        </div>
+      </div>
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>Endless Laughter 😂</h3>
+          <p>All those inside jokes that no one else understands, but make us laugh instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Photo Gallery -->
+  <section id="gallery" class="section">
+    <h2>Favorite Moments 📸</h2>
+    <p class="section-sub">Click any photo to inspect it!</p>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="image4.png" alt="Memory 1">
+
+        <div class="overlay">Best Smile 😊</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="image6.png" alt="Memory 2">
+        <div class="overlay">Fun Times ✨</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+       <img src="image3.png" alt="Memory 3">
+        <div class="overlay">Unforgettable 🌷</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Virtual Bouquet Builder -->
+  <section id="flowers" class="section">
+    <h2>Build Her a Virtual Bouquet 🌷</h2>
+    <p class="section-sub">Pick her favorite flowers to build a personalized bouquet!</p>
+    <div class="flower-controls">
+      <button onclick="addFlower('🌹')">Add Rose 🌹</button>
+      <button onclick="addFlower('🌷')">Add Tulip 🌷</button>
+      <button onclick="addFlower('🌻')">Add Sunflower 🌻</button>
+      <button onclick="addFlower('🌸')">Add Blossom 🌸</button>
+      <button onclick="clearBouquet()" class="clear-btn">Reset 🗑️</button>
+    </div>
+    <div class="bouquet-display" id="bouquetContainer">
+      <p id="emptyMsg">Your bouquet is currently empty. Click buttons above!</p>
+    </div>
+  </section>
+
+  <!-- Interactive Envelopes & Scratch Card Section -->
+  <section id="secret" class="section">
+    <h2>Special Letters & Secret Surprise 💌</h2>
+    <p class="section-sub">Click an envelope to open a message, or scratch the card below!</p>
+    
+    <!-- Envelopes Grid -->
+    <div class="envelope-grid">
+      <div class="envelope-card" onclick="openEnvelope(this, 'you are my teddy beer never leave me! 🌟')">
+        <div class="env-icon">✉️</div>
+        <div class="env-label">Open Letter 1</div>
+      </div>
+      <div class="envelope-card" onclick="openEnvelope(this, 'You are one of the most kind, caring, and genuine people I know. 🌷')">
+        <div class="env-icon">✉️</div>
+        <div class="env-label">Open Letter 2</div>
+      </div>
+      <div class="envelope-card" onclick="openEnvelope(this, 'Thank you for always being someone I can completely rely on! 💖')">
+        <div class="env-icon">✉️</div>
+        <div class="env-label">Open Letter 3</div>
+      </div>
+    </div>
+
+    <!-- Letter Popup Modal -->
+    <div id="envelopeModal" class="envelope-modal" onclick="closeEnvelope()">
+      <div class="envelope-modal-content" onclick="event.stopPropagation()">
+        <span class="close-env" onclick="closeEnvelope()">&times;</span>
+        <div class="letter-paper">
+          <p id="letterContent">Click an envelope above!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scratch Card Container -->
+    <div class="scratch-container">
+      <h3>Scratch Off Your Secret Gift 🎁</h3>
+      <p class="scratch-sub">Hover or move your mouse/finger over the box to reveal!</p>
+      <div class="canvas-wrapper">
+        <div class="scratch-reward">
+          🎉 <strong></strong><br>
+        i will give u respect+ I have nothing to capiable to give u expensive gift 
+         becouse u are my god gifted teddy🧋✨
+        </div>
+        <canvas id="scratchCanvas" width="300" height="120"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image Lightbox Modal -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" alt="Enlarged View">
+  </div>
+
+  <footer>
+    <p>Made with 💖 just for you | Forever Besties</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
