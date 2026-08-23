@@ -1,4 +1,4 @@
-/ Dynamic Notes / Quotes Array
+//Dynamic Notes / Quotes Array
 const notes = [
   "You bring so much light and joy to everyone around you! 🌟",
   "Never forget how capable, smart, and amazing you are. 💫",
